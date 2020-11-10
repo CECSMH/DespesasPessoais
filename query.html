@@ -9,18 +9,19 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Bootstrap fim -->
+
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- referencia ao app.js -->
     <script src="./app.js"></script>
 
 
 	</head>
-
+  <!-- Assim que o body é carregado, a função loadList responsável por recuperar informações e imprimir na tela -->
   <body onload="loadList()">  
 
-
+    <!-- header responsivo -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -43,14 +44,17 @@
         </div>
       </div>
     </nav>
-
+    <!-- Estrutura de colunas -->
     <div class="container">
+
+      <!-- Titulo -->
       <div class="row mb-5">
         <div class="col">
           <h1 class="display-4">Consulta de despesas</h1>
         </div>
       </div>
 
+      <!-- options -->
       <div class="row mb-2">
         <div class="col-md-2">
           <select class="form-control" id="ano">
@@ -102,6 +106,7 @@
         </div>
       </div>
 
+      <!-- inputs de texto -->
       <div class="row  mb-5">
         <div class="col-md-8">
           <input type="text" class="form-control" placeholder="Descrição" id="descricao" />
@@ -117,9 +122,11 @@
           </button>
         </div>
       </div>
-
+      
+      <!-- estrutura de tabela -->
       <div class="row">
         <div class="col">
+          <!-- header da tabela -->
           <table class="table" >
             <thead>
               <tr>
@@ -131,6 +138,7 @@
               </tr>
             </thead>
 
+            <!-- corpo da tabela, cuja as informações serão impressas programaticamente -->
             <tbody id="list">
 
             </tbody>

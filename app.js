@@ -1,3 +1,4 @@
+//Objeto responsável por armazenar informações preenchidas pelo usuário.
 class Expense {
     constructor(ano, mes, dia, tipo, descricao, valor){
         this.ano = ano
@@ -8,6 +9,7 @@ class Expense {
         this.valor = valor
     }
 
+    //método de validação de itens
     validate(){
         for(let i in this){
             if(this[i] == undefined || this[i] == '' || this[i] == null){
@@ -17,7 +19,7 @@ class Expense {
         return true
     }
 }
-
+//Objeto Responsável por manipular informações no local storage.
 class Bd{
 
     constructor (){
@@ -28,15 +30,18 @@ class Bd{
         }
     }
 
+    //Método de atribuição de id auto incremento para cada novo objeto gravado em local storage.
     getNextId(){
         let NextId = localStorage.getItem('id')
         return parseInt(NextId) + 1
     }
+    //Método responsável por gravar informações no local storage do navegador.
     save(d){
         let id = this.getNextId()
         localStorage.setItem(id, JSON.stringify(d))
         localStorage.setItem('id', id)
     }
+    //Método responsável por recuperar informações do local storage.
     loadAllRegisters(){
 
         let items = Array()
@@ -53,6 +58,7 @@ class Bd{
         }
         return items
     }
+    //Método responsável por filtrar informações com base no que foi escrito no campo de busca.
     search(data){
         let searchF = Array() 
         searchF = this.loadAllRegisters()
@@ -78,6 +84,7 @@ class Bd{
 
         return searchF
     }
+    //Método responsável por excluir informações do local storage.
     remove(id){
         localStorage.removeItem(id)
     }
@@ -85,6 +92,7 @@ class Bd{
 
 let bd = new Bd()
 
+//Função que captura os dados digitados nos campos e armazena-los em um objeto.
 function submit(){
 
     let year = document.getElementById('ano')
@@ -111,6 +119,7 @@ function submit(){
         document.getElementById('description').innerHTML = 'Despesa cadastrada com sucesso.'
         document.getElementById('corbtn').innerHTML = 'Voltar'
         document.getElementById('corbtn').className = 'btn btn-primary btn-success'
+        //alerta de erro ou sucesso
         $('#saveDialog').modal('show')
 
         year.value = ''
@@ -130,7 +139,7 @@ function submit(){
     }
     
 }
-
+//Função que carrega as informações e imprime na tela em forma de linhas e colunas em um tabela.
 function loadList(items = Array()){
 
     if(items.length == 0){
@@ -179,7 +188,7 @@ function loadList(items = Array()){
        line.insertCell(4).append(button)
     })
 }
-
+//Função responsável por buscar e filtrar.
 function searchRegister(){
     let year = document.getElementById('ano').value
     let month = document.getElementById('mes').value

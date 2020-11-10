@@ -9,18 +9,19 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Bootstrap fim -->
+   
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+    <!-- Referencia para o arquivo app.js -->
     <script src="./app.js"></script>
 
 	</head>
 
   <body>
 
-
+    <!-- header responsivo -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -44,14 +45,19 @@
       </div>
     </nav>
 
+    <!-- Estrutura de colunas -->
     <div class="container">
+
+      <!-- Titulo -->
       <div class="row">
         <div class="col mb-5">
           <h1 class="display-4">Registro de nova despesa</h1>
         </div>
       </div>
 
+      <!-- options -->
       <div class="row mb-2">
+        <!-- seleção de ano -->
         <div class="col-md-2">
           <select class="form-control" id="ano">
             <option value="">Ano</option>
@@ -67,6 +73,7 @@
           </select>
         </div>
 
+        <!-- seleção de mês -->
         <div class="col-md-2">
           <select class="form-control" id="mes">
             <option value="">Mês</option>
@@ -85,10 +92,12 @@
           </select>
         </div>
         
+        <!-- input de texto -->
         <div class="col-md-2">
           <input type="text" class="form-control" placeholder="Dia" id="dia" />
         </div>
 
+        <!-- seleção de tipo -->
         <div class="col-md-6">
           <select class="form-control" id="tipo">
             <option value ="">Tipo</option>
@@ -101,6 +110,7 @@
         </div>
       </div>
 
+      <!-- inputs de texto -->
       <div class="row">
         <div class="col-md-8">
           <input type="text" class="form-control" placeholder="Descrição" id="descricao" />
@@ -111,6 +121,7 @@
         </div>
 
         <div class="col-md-2 d-flex justify-content-end">
+          <!-- chamada da função que captura as informações digitadas -->
           <button type="button" class="btn btn-primary" onclick="submit()">
             <i class="fas fa-plus"></i>
           </button>
